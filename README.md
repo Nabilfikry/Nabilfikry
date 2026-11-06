@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/dashboard.svg" width="100%" alt="Nabil Fikry Khaidar — GitHub dashboard" />
+<img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/header.svg" width="100%" alt="Nabil Fikry Khaidar — Profile Header" />
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=16&duration=2800&pause=900&color=C084FC&center=true&vCenter=true&width=600&lines=UI%2FUX+Designer+%C3%97+Software+Engineer;Information+Systems+Student;Design+with+purpose.+Build+with+precision." alt="Typing SVG" />
 
@@ -12,9 +12,22 @@
 <a href="https://www.instagram.com/naabilfikry"><img src="https://img.shields.io/badge/Instagram-Follow-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=161622" alt="Instagram" /></a>&nbsp;
 <a href="mailto:nabilfikry06@gmail.com"><img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=161622" alt="Email" /></a>
 
+<br/><br/>
+
+<a href="https://github.com/Nabilfikry?tab=repositories"><img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/stat-repos.svg" width="24%" alt="Repositories" /></a>&nbsp;
+<a href="#-analytics--insights"><img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/stat-contributions.svg" width="24%" alt="Contributions" /></a>&nbsp;
+<a href="https://github.com/Nabilfikry?tab=followers"><img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/stat-followers.svg" width="24%" alt="Followers" /></a>&nbsp;
+<a href="https://github.com/Nabilfikry?tab=following"><img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/stat-following.svg" width="24%" alt="Following" /></a>
+
 </div>
 
 <br/>
+
+### ✦ Activity & Code Overview
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/activity.svg" width="100%" alt="Activity and Code Overview" />
+</p>
 
 ### ✦ Featured Projects
 
@@ -35,7 +48,7 @@
 ### ✦ Analytics & Insights
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/insights.svg" width="100%" alt="Analytics and Activity" />
+  <img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/insights.svg" width="100%" alt="Analytics and Insights" />
 </p>
 
 ### ✦ Contribution Snake

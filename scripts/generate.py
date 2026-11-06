@@ -1,4 +1,4 @@
-"""Render the futuristic profile SVGs (dashboard, tech-stack, insights, project cards).
+"""Render the modular futuristic profile SVGs.
 
 Usage: GH_TOKEN=... python3 scripts/generate.py <out_dir>
 Stdlib only, bare GitHub Actions runner compatible.
@@ -143,10 +143,6 @@ def wrap(s, limit):
     return lines + [cur] if cur else lines
 
 
-def pill_width(s, size=10):
-    return len(s) * size * 0.55 + 14
-
-
 def svg(w, h, body, style=""):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
             f'viewBox="0 0 {w} {h}" font-family="{FONT}">'
@@ -157,141 +153,128 @@ def short(n):
     return f"{n / 1000:.1f}k".replace(".0k", "k") if n >= 1000 else str(n)
 
 
-# ---------------------------------------------------------------- dashboard
-def render_dashboard(d):
-    W, H, SB = 1000, 580, 270
+# ---------------------------------------------------------------- header card
+def render_header(d):
+    W, H = 1000, 210
     o = [f'''<defs>
-  <clipPath id="frame"><rect width="{W}" height="{H}" rx="22"/></clipPath>
-  <clipPath id="ava"><rect x="64" y="80" width="142" height="142" rx="26"/></clipPath>
+  <clipPath id="f-h"><rect width="{W}" height="{H}" rx="20"/></clipPath>
+  <clipPath id="ava-h"><rect x="36" y="58" width="124" height="124" rx="22"/></clipPath>
   <linearGradient id="neon" x1="0" x2="1" y1="0" y2="1">
     <stop offset="0" stop-color="#f472b6"/><stop offset=".5" stop-color="#a855f7"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
-  <linearGradient id="btn" x1="0" x2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
-  <linearGradient id="bar" x1="0" x2="1"><stop offset="0" stop-color="#a855f7" stop-opacity="0"/><stop offset=".5" stop-color="#c084fc"/><stop offset="1" stop-color="#22d3ee" stop-opacity="0"/></linearGradient>
-  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter>
+  <linearGradient id="edge-h" x1="0" x2="1"><stop offset="0" stop-color="#a855f7"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+  <filter id="glow-h" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter>
 </defs>
-<g clip-path="url(#frame)">
+<g clip-path="url(#f-h)">
 <rect width="{W}" height="{H}" fill="{BG}"/>
-<rect y="48" width="{SB}" height="{H - 48}" fill="{PANEL}"/>
-<rect class="scan" x="-300" width="300" height="2" fill="url(#bar)"/>''']
+<rect x="0" y="0" width="{W}" height="2" fill="url(#edge-h)"/>''']
 
-    # sleek window titlebar
+    # window dots & titlebar
     for i, c in enumerate(["#ff5f57", "#febc2e", "#28c840"]):
-        o.append(f'<circle cx="{24 + i * 16}" cy="24" r="5" fill="{c}"/>')
-    o.append(text(W / 2, 28, "nabilfikry.dev // profile-dashboard", 12, MUTED, 500, "middle", f'font-family="{MONO}"'))
-    o.append(f'<circle cx="{W - 146}" cy="24" r="4" fill="#34d399"/>')
-    o.append(text(W - 134, 28, "ACTIVE • INDONESIA", 10.5, "#34d399", 600, extra=f'font-family="{MONO}" letter-spacing="1"'))
-    o.append(f'<line x1="0" y1="48" x2="{W}" y2="48" stroke="{LINE}"/>')
+        o.append(f'<circle cx="{26 + i * 16}" cy="24" r="5" fill="{c}"/>')
+    o.append(text(W / 2, 28, "nabilfikry.dev // identity", 12, MUTED, 500, "middle", f'font-family="{MONO}"'))
+    o.append(f'<circle cx="{W - 150}" cy="24" r="4" fill="#34d399"/>')
+    o.append(text(W - 138, 28, "ACTIVE • INDONESIA", 10.5, "#34d399", 600, extra=f'font-family="{MONO}" letter-spacing="1"'))
+    o.append(f'<line x1="0" y1="46" x2="{W}" y2="46" stroke="{LINE}"/>')
 
-    # sidebar profile
-    cx = SB / 2
-    o.append(f'<rect class="halo" x="60" y="76" width="150" height="150" rx="30" fill="url(#neon)" filter="url(#glow)"/>')
-    o.append('<rect x="60" y="76" width="150" height="150" rx="30" fill="url(#neon)"/>')
-    o.append(f'<image href="{d["avatar"]}" x="64" y="80" width="142" height="142" '
-             f'preserveAspectRatio="xMidYMid slice" clip-path="url(#ava)"/>')
-    o.append(text(cx, 252, PROFILE["name"], 18, TEXT, 700, "middle"))
-    o.append(text(cx, 273, f'@{LOGIN} · {PROFILE["nick"]}', 12.5, ACCENT, 500, "middle"))
-    for i, line in enumerate(PROFILE["tagline"]):
-        o.append(text(cx, 298 + i * 17, line, 11.5, MUTED, anchor="middle"))
-    loc_w = len(PROFILE["location"]) * 7 + 16
-    o.append(icon("pin", cx - loc_w / 2, 338, 12, "#f472b6")
-             + text(cx - loc_w / 2 + 17, 349, PROFILE["location"], 11.5, "#c9c9dc"))
+    # avatar with glowing frame
+    o.append(f'<rect class="halo" x="32" y="54" width="132" height="132" rx="26" fill="url(#neon)" filter="url(#glow-h)" opacity=".6"/>')
+    o.append(f'<rect x="32" y="54" width="132" height="132" rx="26" fill="url(#neon)"/>')
+    o.append(f'<image href="{d["avatar"]}" x="36" y="58" width="124" height="124" preserveAspectRatio="xMidYMid slice" clip-path="url(#ava-h)"/>')
 
-    # follow button
-    o.append('<rect class="halo" x="66" y="370" width="138" height="34" rx="17" fill="#a855f7" filter="url(#glow)" opacity=".55"/>')
-    o.append('<rect x="60" y="368" width="150" height="36" rx="18" fill="url(#btn)"/>')
-    o.append(text(cx, 391, "FOLLOW", 11.5, "#fff", 700, "middle", 'letter-spacing="3"'))
+    # info
+    tx = 192
+    o.append(text(tx, 86, PROFILE["name"], 24, TEXT, 700))
+    o.append(text(tx, 110, f'@{LOGIN} · {PROFILE["nick"]}', 13.5, ACCENT, 600))
+    o.append(text(tx, 134, "Information Systems Student  •  UI/UX Designer & Software Engineer", 13, "#d6d6e7", 400))
 
-    # skills
-    o.append(text(24, 432, "Skills & Focus", 12, "#c9c9dc", 600))
-    x, y = 24, 444
-    for s in PROFILE["skills"]:
-        w = pill_width(s, 9.5)
-        if x + w > SB - 24:
-            x, y = 24, y + 25
-        o.append(f'<rect x="{x}" y="{y}" width="{w:.0f}" height="20" rx="10" fill="{CARD}" stroke="{LINE}"/>'
-                 + text(x + w / 2, y + 14, s, 10, "#c9c9dc", anchor="middle"))
-        x += w + 5
-    o.append(f'<line x1="24" y1="538" x2="{SB - 24}" y2="538" stroke="{LINE}"/>')
-    o.append(text(cx, 558, "↗  " + PROFILE["site"], 11, ACCENT, 500, "middle"))
+    # pills row
+    pills = ["UI/UX Design", "System Architecture", "Full-Stack Development", "📍 Indonesia", "⚡ Open for Collaborations"]
+    px = tx
+    for pill in pills:
+        pw = len(pill) * 6.4 + 18
+        o.append(f'<rect x="{px}" y="152" width="{pw:.0f}" height="24" rx="12" fill="{PANEL}" stroke="{LINE}"/>'
+                 + text(px + pw / 2, 168, pill, 11, MUTED if "📍" not in pill and "⚡" not in pill else TEXT, anchor="middle"))
+        px += pw + 8
 
-    # right main panel
-    X0, RW = 292, 684
-    # section header
-    o.append(text(X0, 78, "METRICS & ACTIVITY", 12, ACCENT, 700, extra=f'font-family="{MONO}" letter-spacing="1.5"'))
-    o.append(f'<rect x="{X0 + 170}" y="67" width="60" height="16" rx="8" fill="#a855f722" stroke="#a855f755"/>'
-             + text(X0 + 200, 79, "LIVE", 9.5, ACCENT, 700, "middle", f'font-family="{MONO}"'))
-    o.append(f'<line x1="{X0}" y1="88" x2="{X0 + RW}" y2="88" stroke="{LINE}"/>')
+    o.append(f'</g><rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="20" fill="none" stroke="{LINE}"/>')
+    style = ".halo{animation:pulse 3s ease-in-out infinite}@keyframes pulse{50%{opacity:.25}}"
+    return svg(W, H, "\n".join(o), style)
 
-    # 4 stat cards (accurate, positive metrics!)
-    stats = [
-        ("Repositories", d["repos"], "repo", "#8b5cf6"),
-        ("Contributions", d["total"], "pulse", "#ec4899"),
-        ("Followers", d["followers"], "people", "#38bdf8"),
-        ("Following", d["following"], "flame", "#34d399")
-    ]
-    for i, (label, val, ic, col) in enumerate(stats):
-        x = X0 + i * 175
-        o.append(f'<g class="rise" style="animation-delay:{i * 100}ms">'
-                 f'<rect x="{x}" y="102" width="160" height="62" rx="12" fill="{CARD}" stroke="{LINE}"/>'
-                 f'<rect x="{x + 12}" y="115" width="34" height="34" rx="9" fill="{col}"/>'
-                 + icon(ic, x + 21, 124, 16, "#fff")
-                 + text(x + 56, 126, label, 11, MUTED)
-                 + text(x + 56, 148, short(val), 18, TEXT, 700) + '</g>')
 
-    # code panel
-    o.append(f'<rect x="{X0}" y="180" width="{RW}" height="142" rx="12" fill="{PANEL}" stroke="{LINE}"/>')
+# ---------------------------------------------------------------- clickable stat cards
+def render_stat_card(label, val, icon_name, color):
+    W, H = 240, 80
+    o = [f'''<defs>
+  <clipPath id="f-sc-{label}"><rect width="{W}" height="{H}" rx="14"/></clipPath>
+  <linearGradient id="edge-sc-{label}" x1="0" x2="1"><stop offset="0" stop-color="{color}"/><stop offset="1" stop-color="{color}11"/></linearGradient>
+</defs>
+<g clip-path="url(#f-sc-{label})">
+<rect width="{W}" height="{H}" fill="{PANEL}" stroke="{LINE}"/>
+<rect x="14" y="0" width="{W - 28}" height="1.8" fill="url(#edge-sc-{label})"/>
+<rect x="16" y="18" width="44" height="44" rx="12" fill="{color}"/>
+{icon(icon_name, 28, 30, 20, "#fff")}
+{text(72, 36, label, 11.5, MUTED)}
+{text(72, 59, short(val), 21, TEXT, 700)}
+<path d="M{W - 24} 24l6-6M{W - 22} 18h4v4" fill="none" stroke="{color}" stroke-width="1.8" stroke-linecap="round"/>
+</g>
+<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="14" fill="none" stroke="{LINE}"/>''']
+    return svg(W, H, "\n".join(o))
+
+
+# ---------------------------------------------------------------- activity & code overview
+def render_activity(d):
+    W, H = 1000, 230
+    o = [f'''<defs>
+  <clipPath id="f-act"><rect width="{W}" height="{H}" rx="20"/></clipPath>
+  <linearGradient id="edge-act" x1="0" x2="1"><stop offset="0" stop-color="#a855f7"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+</defs>
+<g clip-path="url(#f-act)">
+<rect width="{W}" height="{H}" fill="{BG}"/>
+<rect x="0" y="0" width="{W}" height="2" fill="url(#edge-act)"/>''']
+
+    # left code panel
+    CX, CW = 20, 420
+    o.append(f'<rect x="{CX}" y="20" width="{CW}" height="{H - 40}" rx="14" fill="{PANEL}" stroke="{LINE}"/>')
     for i, c in enumerate(["#ff5f57", "#febc2e", "#28c840"]):
-        o.append(f'<circle cx="{X0 + 18 + i * 14}" cy="196" r="4.5" fill="{c}"/>')
-    o.append(text(X0 + RW / 2, 199, "nafi.config.ts", 11, MUTED, anchor="middle", extra=f'font-family="{MONO}"'))
+        o.append(f'<circle cx="{CX + 18 + i * 14}" cy="38" r="4.5" fill="{c}"/>')
+    o.append(text(CX + CW / 2, 41, "nafi.config.ts", 11, MUTED, anchor="middle", extra=f'font-family="{MONO}"'))
     K, S, P, C = "#c084fc", "#86efac", "#e2e8f0", "#7dd3fc"
     code = [
         [("const ", K), ("nafi", C), (" = {", P)],
         [("  role", P), (": [", P), ('"UI/UX Designer"', S), (", ", P), ('"Software Engineer"', S), ("],", P)],
         [("  study", P), (": ", P), ('"Information Systems"', S), (",", P)],
-        [("  focus", P), (": [", P), ('"Design Systems"', S), (", ", P), ('"Full-Stack"', S), (", ", P), ('"System Analysis"', S), ("],", P)],
         [("  motto", P), (": ", P), ('"Design with purpose. Build with precision."', S)],
         [("};", P)],
     ]
     for i, parts in enumerate(code):
-        y = 224 + i * 16
+        y = 66 + i * 22
         spans = "".join(f'<tspan fill="{c}">{escape(t)}</tspan>' for t, c in parts)
-        o.append(text(X0 + 16, y, i + 1, 10.5, "#4b4b63", anchor="end", extra=f'font-family="{MONO}"'))
-        o.append(f'<text x="{X0 + 28}" y="{y}" font-size="11" font-family="{MONO}" xml:space="preserve">{spans}</text>')
-    o.append(f'<rect class="caret" x="{X0 + 44}" y="{224 + 5 * 16 - 10}" width="7" height="13" fill="{ACCENT}" opacity=".8"/>')
+        o.append(text(CX + 16, y, i + 1, 10.5, "#4b4b63", anchor="end", extra=f'font-family="{MONO}"'))
+        o.append(f'<text x="{CX + 28}" y="{y}" font-size="11" font-family="{MONO}" xml:space="preserve">{spans}</text>')
 
-    # heatmap
-    o.append(text(X0, 350, f'{d["total"]:,} contributions in the last year', 13.5, TEXT, 600))
-    lx = X0 + RW - 140
-    o.append(text(lx, 350, "Less", 10.5, MUTED))
+    # right heatmap panel
+    HX, HW = 460, 520
+    o.append(f'<rect x="{HX}" y="20" width="{HW}" height="{H - 40}" rx="14" fill="{PANEL}" stroke="{LINE}"/>')
+    o.append(text(HX + 18, 44, f'{d["total"]:,} contributions in the last year', 13, TEXT, 600))
+    lx = HX + HW - 130
+    o.append(text(lx, 44, "Less", 10, MUTED))
     for i, c in enumerate(LEVELS):
-        o.append(f'<rect x="{lx + 28 + i * 14}" y="341" width="10" height="10" rx="2.5" fill="{c}"/>')
-    o.append(text(lx + 28 + 5 * 14 + 4, 350, "More", 10.5, MUTED))
-    o.append(f'<rect x="{X0}" y="362" width="{RW}" height="114" rx="12" fill="{PANEL}" stroke="{LINE}"/>')
-    weeks = d["weeks"][-53:]
+        o.append(f'<rect x="{lx + 26 + i * 13}" y="36" width="9" height="9" rx="2.5" fill="{c}"/>')
+    o.append(text(lx + 26 + 5 * 13 + 4, 44, "More", 10, MUTED))
+
+    weeks = d["weeks"][-46:]
     peak = max((c for w in weeks for c in w), default=0)
-    pitch = (RW - 24) / 53
-    cell = pitch - 2.5
+    pitch = (HW - 32) / 46
+    cell = pitch - 2.4
     for wi, week in enumerate(weeks):
         for di, c in enumerate(week):
-            o.append(f'<rect class="cell" style="animation-delay:{wi * 15}ms" x="{X0 + 12 + wi * pitch:.1f}" '
-                     f'y="{374 + di * pitch:.1f}" width="{cell:.1f}" height="{cell:.1f}" rx="2.5" '
-                     f'fill="{LEVELS[level(c, peak)]}"/>')
+            o.append(f'<rect class="cell" style="animation-delay:{wi * 12}ms" x="{HX + 16 + wi * pitch:.1f}" y="{62 + di * (cell + 2.5):.1f}" width="{cell:.1f}" height="{cell:.1f}" rx="2" fill="{LEVELS[level(c, peak)]}"/>')
 
-    o.append(text(X0, 508, "Activity Heatmap Overview", 12, MUTED, 500))
-    o.append(text(X0 + RW, 508, f'updated {d["today"]:%d %b %Y}', 11, "#5d5d78", anchor="end"))
-    o.append(f'</g><rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="22" fill="none" stroke="{LINE}"/>')
+    o.append(text(HX + 18, 192, "Activity Heatmap Overview", 11, MUTED))
+    o.append(text(HX + HW - 18, 192, f'updated {d["today"]:%d %b %Y}', 10.5, "#5d5d78", anchor="end"))
 
-    style = """
-.cell{transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out both}
-.rise{animation:rise .5s ease-out both}
-.caret{animation:blink 1s steps(1) infinite}
-.halo{animation:pulse 3s ease-in-out infinite}
-.scan{animation:scan 6s linear infinite}
-@keyframes pop{from{opacity:0;transform:scale(.2)}}
-@keyframes rise{from{opacity:0;transform:translateY(10px)}}
-@keyframes blink{50%{opacity:0}}
-@keyframes pulse{50%{opacity:.25}}
-@keyframes scan{to{transform:translateX(1300px)}}"""
+    o.append(f'</g><rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="20" fill="none" stroke="{LINE}"/>')
+    style = ".cell{transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out both}@keyframes pop{from{opacity:0;transform:scale(.2)}}"
     return svg(W, H, "\n".join(o), style)
 
 
@@ -306,7 +289,6 @@ def render_tech_stack():
 <rect width="{W}" height="{H}" fill="{BG}"/>
 <rect x="0" y="0" width="{W}" height="2" fill="url(#edge-ts)"/>''']
 
-    # 4 columns
     cols = [
         {"title": "UI/UX & DESIGN", "accent": "#c084fc", "items": ["Figma", "UI/UX Design", "Wireframing", "Design Systems", "Prototyping"]},
         {"title": "FRONTEND", "accent": "#38bdf8", "items": ["Next.js", "React.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5 & CSS3"]},
@@ -320,16 +302,12 @@ def render_tech_stack():
 
     for ci, col in enumerate(cols):
         cx = start_x + ci * (cw + gap)
-        # card background
         o.append(f'<rect x="{cx}" y="20" width="{cw}" height="{H - 40}" rx="14" fill="{PANEL}" stroke="{LINE}"/>')
-        # card top glow line
         o.append(f'<rect x="{cx + 16}" y="20" width="{cw - 32}" height="1.5" fill="{col["accent"]}"/>')
-        # card title
         o.append(f'<circle cx="{cx + 18}" cy="42" r="4" fill="{col["accent"]}"/>')
         o.append(text(cx + 28, 46, col["title"], 11, TEXT, 700, extra=f'font-family="{MONO}" letter-spacing="1"'))
         o.append(f'<line x1="{cx + 14}" y1="58" x2="{cx + cw - 14}" y2="58" stroke="{LINE}"/>')
 
-        # items as clean badges
         bx, by = cx + 14, 72
         for it in col["items"]:
             tw = len(it) * 6.2 + 16
@@ -371,7 +349,7 @@ def render_insights(d):
         o.append(text(x, 172, label, 11.5, ACCENT if x == 245 else MUTED, 500, "middle"))
     o.append(f'<line x1="167" y1="74" x2="167" y2="162" stroke="{LINE}"/><line x1="323" y1="74" x2="323" y2="162" stroke="{LINE}"/>')
 
-    # languages panel (filtered, no bloated notebooks!)
+    # languages panel (filtered, no notebooks!)
     X = 534
     o.append(text(X, 34, "Most Used Languages", 14.5, TEXT, 600))
     langs = [l for l in d["langs"] if l[0] not in IGNORED_LANGS][:6]
@@ -430,12 +408,19 @@ def main():
     if not token:
         raise SystemExit("GH_TOKEN is required")
     data = fetch(token)
-    (out / "dashboard.svg").write_text(render_dashboard(data), encoding="utf-8")
+
+    # modular components
+    (out / "header.svg").write_text(render_header(data), encoding="utf-8")
+    (out / "stat-repos.svg").write_text(render_stat_card("Repositories", data["repos"], "repo", "#8b5cf6"), encoding="utf-8")
+    (out / "stat-contributions.svg").write_text(render_stat_card("Contributions", data["total"], "pulse", "#ec4899"), encoding="utf-8")
+    (out / "stat-followers.svg").write_text(render_stat_card("Followers", data["followers"], "people", "#38bdf8"), encoding="utf-8")
+    (out / "stat-following.svg").write_text(render_stat_card("Following", data["following"], "flame", "#34d399"), encoding="utf-8")
+    (out / "activity.svg").write_text(render_activity(data), encoding="utf-8")
     (out / "tech-stack.svg").write_text(render_tech_stack(), encoding="utf-8")
     (out / "insights.svg").write_text(render_insights(data), encoding="utf-8")
     for p in PROJECTS:
         (out / f"project-{p['slug']}.svg").write_text(render_project(p), encoding="utf-8")
-    print(f"wrote {len(PROJECTS) + 3} SVGs to {out}")
+    print(f"wrote all modular SVGs to {out}")
 
 
 if __name__ == "__main__":
