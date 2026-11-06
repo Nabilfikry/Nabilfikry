@@ -1,0 +1,39 @@
+name: Profile
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # daily, 07:00 WIB
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Dashboard, insights & project cards
+        run: python3 scripts/test_generate.py && python3 scripts/generate.py dist
+        env:
+          # optional PROFILE_TOKEN (classic PAT, read:user) also counts private contributions
+          GH_TOKEN: ${{ secrets.PROFILE_TOKEN || github.token }}
+
+      - name: Neon contribution snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/snake.svg?color_snake=#c084fc&color_dots=#262634,#4c2a85,#6d3fd1,#9b6dff,#d9c6ff
+
+      - name: Publish to output branch
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: dist
+          commit_message: "chore: refresh profile assets"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

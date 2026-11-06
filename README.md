@@ -1,124 +1,55 @@
- <div align="center">
+<div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:070B16,50:102B56,100:1677FF&height=180&section=header&text=NAFI&fontSize=64&fontColor=FFFFFF&fontAlignY=45&desc=DESIGN%20%7C%20ENGINEERING%20%7C%20SYSTEMS&descSize=13&descAlignY=72" width="100%" />
+<a href="https://naabilfikry.vercel.app">
+  <img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/dashboard.svg" width="100%" alt="Nabil Fikry Khaidar — GitHub dashboard" />
+</a>
 
-<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=500&size=17&duration=3000&pause=1000&color=42B8FF&center=true&vCenter=true&width=600&lines=UI%2FUX+Designer;Software+Developer;System+Analyst;Engineering+Digital+Experiences." alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=18&duration=2800&pause=900&color=C084FC&center=true&vCenter=true&width=640&lines=Hi%2C+I'm+Nafi+%F0%9F%91%8B;UI%2FUX+Designer+%C3%97+Software+Engineer;Information+Systems+Student;Design+with+purpose.+Build+with+precision." alt="Typing SVG" />
 
 <br/>
 
-[![Portfolio](https://img.shields.io/badge/PORTFOLIO-1677FF?style=flat-square&logo=vercel&logoColor=white)](YOUR_PORTFOLIO_URL)
-[![LinkedIn](https://img.shields.io/badge/LINKEDIN-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](YOUR_LINKEDIN_URL)
-[![Email](https://img.shields.io/badge/EMAIL-1B263B?style=flat-square&logo=gmail&logoColor=white)](mailto:YOUR_EMAIL)
+<a href="https://naabilfikry.vercel.app"><img src="https://img.shields.io/badge/Portfolio-naabilfikry.vercel.app-8B5CF6?style=for-the-badge&logo=vercel&logoColor=white&labelColor=1B1B26" alt="Portfolio" /></a>
+<a href="https://www.linkedin.com/in/nabil-fikry-khaidar-98440927b"><img src="https://img.shields.io/badge/LinkedIn-Connect-8B5CF6?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=1B1B26" alt="LinkedIn" /></a>
+<a href="https://www.instagram.com/naabilfikry"><img src="https://img.shields.io/badge/Instagram-@naabilfikry-8B5CF6?style=for-the-badge&logo=instagram&logoColor=white&labelColor=1B1B26" alt="Instagram" /></a>
+<a href="mailto:nabilfikry06@gmail.com"><img src="https://img.shields.io/badge/Email-Say_hi-8B5CF6?style=for-the-badge&logo=gmail&logoColor=white&labelColor=1B1B26" alt="Email" /></a>
 
 </div>
-
----
-
-## 01. ABOUT ME
-
-Hi! I'm **Nafi**, an Information Systems student and a technology enthusiast passionate about building meaningful digital experiences.
-
-I combine **design thinking, software engineering, and system analysis** to transform complex problems into intuitive, scalable, and user-centered solutions.
-
-My interests lie at the intersection of technology, creativity, and business.
-
-```yaml
-name: Nafi
-field: Information Systems
-identity: Hybrid Tech & Design
-interests:
-  - UI/UX Design
-  - Software Development
-  - System Analysis
-  - Product Development
-  - Enterprise Architecture
-mindset: Design with purpose. Build with precision.
-```
-
-## 02. WHAT I DO
-
-| Area | Focus |
-|:--|:--|
-| Design | UI/UX, Design Systems, Prototyping |
-| Development | Frontend, Backend, Full-Stack |
-| Systems | System Analysis, UML, BPMN |
-| Architecture | Software Architecture, API Design |
-| Product | Product Thinking, User Research |
-
-## 03. TECH STACK
-
-**Design & Creativity**
-
-<img src="https://skillicons.dev/icons?i=figma,ps,ai,xd" />
-
-**Frontend Development**
-
-<img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,tailwind" />
-
-**Backend Development**
-
-<img src="https://skillicons.dev/icons?i=php,laravel,nodejs,nestjs,python,go" />
-
-**Database & Infrastructure**
-
-<img src="https://skillicons.dev/icons?i=postgres,mysql,firebase,redis,docker,linux,git,github" />
-
-## 04. FEATURED PROJECTS
-
-A selection of projects where design meets engineering.
-
-| Project | Description | Stack |
-|:--|:--|:--|
-| **SiAstra** | Dormitory management information system | Laravel, PostgreSQL |
-| **KONEKSA** | UMKM and business partner collaboration platform | Laravel |
-| **TrustNet** | AI-powered digital fraud protection concept | Figma, AI |
-| **Portfolio** | Personal developer and design portfolio | Next.js |
-
-> Replace these entries with your actual repository links, screenshots, and project descriptions.
-
-## 05. GITHUB ANALYTICS
-
-<div align="center">
-
-<img width="49%" src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&hide_border=true&bg_color=070B16&title_color=42B8FF&icon_color=1677FF&text_color=EAF2FF&rank_icon=github" />
-
-<img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&hide_border=true&bg_color=070B16&title_color=42B8FF&text_color=EAF2FF" />
 
 <br/>
 
-<img width="80%" src="https://streak-stats.demolab.com?user=YOUR_USERNAME&hide_border=true&background=070B16&ring=42B8FF&fire=1677FF&currStreakLabel=42B8FF&sideLabels=A5B2C8&dates=7185A5&currStreakNum=FFFFFF&sideNums=FFFFFF" />
+### 📌 Pinned Repository
 
-</div>
+<p align="center">
+  <a href="https://github.com/Tel-U-Dormitory/resora"><img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/project-resora.svg" width="49%" alt="Resora" /></a>
+  <a href="https://github.com/TUBES-PPL-KELOMPOK-F-SI4809/koneksa-platform"><img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/project-koneksa.svg" width="49%" alt="KONEKSA" /></a>
+  <a href="https://github.com/inbis-stiki/pmc2024"><img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/project-pmc.svg" width="49%" alt="PMC 2025" /></a>
+  <a href="https://github.com/KangOjan/proto_web_panti"><img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/project-simka.svg" width="49%" alt="SIMKA-Panti" /></a>
+</p>
 
-## 06. CONTRIBUTION ACTIVITY
+### ⚡ Tech Stack
+
+<table align="center">
+  <tr>
+    <td align="center" width="25%"><sub><b>DESIGN &amp; SYSTEMS</b></sub><br/><br/><img src="https://skillicons.dev/icons?i=figma&theme=dark" height="40" /><br/><sub>UI/UX · System Analysis · UML</sub></td>
+    <td align="center" width="25%"><sub><b>FRONTEND</b></sub><br/><br/><img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,tailwind&theme=dark&perline=4" height="88" /></td>
+    <td align="center" width="25%"><sub><b>BACKEND</b></sub><br/><br/><img src="https://skillicons.dev/icons?i=php,laravel,nodejs,python,go&theme=dark&perline=3" height="88" /></td>
+    <td align="center" width="25%"><sub><b>DATABASE &amp; TOOLS</b></sub><br/><br/><img src="https://skillicons.dev/icons?i=postgres,mysql,git,docker,linux&theme=dark&perline=3" height="88" /></td>
+  </tr>
+</table>
+
+### 📊 Insights
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/insights.svg" width="100%" alt="Streak and languages" />
+</p>
+
+### 🐍 Contribution Snake
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Nabilfikry/Nabilfikry/output/snake.svg" width="100%" alt="Contribution snake" />
+</p>
 
 <div align="center">
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=YOUR_USERNAME&bg_color=070B16&color=42B8FF&line=1677FF&point=B5E6FF&area=true&hide_border=true" width="100%" />
-
-</div>
-
-## 07. CONTRIBUTION SNAKE
-
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_USERNAME/output/github-contribution-grid-snake-dark.svg" width="100%" alt="Contribution Snake" />
-
-</div>
-
-## 08. LET'S CONNECT
-
-I'm always open to meaningful collaborations, interesting projects, and opportunities to build something impactful.
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-1677FF?style=for-the-badge&logo=linkedin&logoColor=white)](YOUR_LINKEDIN_URL)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Explore-1677FF?style=for-the-badge&logo=vercel&logoColor=white)](YOUR_PORTFOLIO_URL)
-
 <br/>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1677FF,50:102B56,100:070B16&height=100&section=footer" width="100%" />
-
-<sub>DESIGNED WITH INTENT. ENGINEERED WITH PURPOSE.</sub>
-
+<sub>DESIGNED WITH INTENT · ENGINEERED WITH PURPOSE · auto-refreshed daily by GitHub Actions</sub>
 </div>
