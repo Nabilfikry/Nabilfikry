@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="200" viewBox="0 0 1000 200" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif"><style>
+.halo{animation:pulse 3s ease-in-out infinite}
+.ring{animation:draw 1.2s ease-out both}
+@keyframes pulse{50%{opacity:.15}}
+@keyframes draw{from{stroke-dasharray:0 999}}</style><defs><linearGradient id="btn" x1="0" x2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#c084fc"/></linearGradient>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="8"/></filter></defs>
+<rect x="0.5" y=".5" width="489" height="199" rx="18" fill="#14141c" stroke="#2c2c3c"/>
+<rect x="510.5" y=".5" width="489" height="199" rx="18" fill="#14141c" stroke="#2c2c3c"/>
+<text x="24" y="34" font-size="14.5" fill="#f4f3ff" font-weight="600" text-anchor="start" >Contribution Streak</text>
+<circle cx="245" cy="108" r="38" fill="none" stroke="#22222f" stroke-width="7"/>
+<circle class="halo" cx="245" cy="108" r="38" fill="none" stroke="#a855f7" stroke-width="7" filter="url(#glow)" opacity=".4"/>
+<circle class="ring" cx="245" cy="108" r="38" fill="none" stroke="url(#btn)" stroke-width="7" stroke-linecap="round" stroke-dasharray="59.7 238.8" transform="rotate(-90 245 108)"/>
+<path transform="translate(237 60) scale(1.0)" d="M8 16c3.3 0 6-2.4 6-5.6 0-3.9-3.4-5.6-3.9-9.4C8 2.3 6.8 4.6 7 7 5.9 6.4 5.4 5.2 5.4 4 3.4 5.6 2 7.9 2 10.4 2 13.6 4.7 16 8 16z" fill="#f472b6"/>
+<text x="90" y="118" font-size="24" fill="#f4f3ff" font-weight="700" text-anchor="middle" >219</text>
+<text x="90" y="172" font-size="11.5" fill="#9b9bb4" font-weight="500" text-anchor="middle" >Total (1 year)</text>
+<text x="245" y="118" font-size="22" fill="#f4f3ff" font-weight="700" text-anchor="middle" >1</text>
+<text x="245" y="172" font-size="11.5" fill="#a78bfa" font-weight="500" text-anchor="middle" >Current Streak</text>
+<text x="400" y="118" font-size="24" fill="#f4f3ff" font-weight="700" text-anchor="middle" >4</text>
+<text x="400" y="172" font-size="11.5" fill="#9b9bb4" font-weight="500" text-anchor="middle" >Longest Streak</text>
+<line x1="167" y1="74" x2="167" y2="162" stroke="#2c2c3c"/><line x1="323" y1="74" x2="323" y2="162" stroke="#2c2c3c"/>
+<text x="534" y="34" font-size="14.5" fill="#f4f3ff" font-weight="600" text-anchor="start" >Most Used Languages</text>
+<clipPath id="lb"><rect x="534" y="52" width="442" height="10" rx="5"/></clipPath><g clip-path="url(#lb)"><rect x="534" y="52" width="442" height="10" fill="#22222f"/>
+<rect x="534.0" y="52" width="298.9" height="10" fill="#f1e05a"/>
+<rect x="832.9" y="52" width="103.4" height="10" fill="#3572A5"/>
+<rect x="936.3" y="52" width="15.5" height="10" fill="#4F5D95"/>
+<rect x="951.8" y="52" width="12.6" height="10" fill="#663399"/>
+<rect x="964.4" y="52" width="11.4" height="10" fill="#e34c26"/>
+<rect x="975.8" y="52" width="0.2" height="10" fill="#198CE7"/>
+</g>
+<circle cx="540" cy="90" r="5.5" fill="#f1e05a"/><text x="552" y="94" font-size="12.5" fill="#d6d6e7" font-weight="500" text-anchor="start" >JavaScript</text><text x="734" y="94" font-size="12" fill="#9b9bb4" font-weight="400" text-anchor="end" >67.6%</text>
+<circle cx="766" cy="90" r="5.5" fill="#3572A5"/><text x="778" y="94" font-size="12.5" fill="#d6d6e7" font-weight="500" text-anchor="start" >Python</text><text x="960" y="94" font-size="12" fill="#9b9bb4" font-weight="400" text-anchor="end" >23.4%</text>
+<circle cx="540" cy="122" r="5.5" fill="#4F5D95"/><text x="552" y="126" font-size="12.5" fill="#d6d6e7" font-weight="500" text-anchor="start" >PHP</text><text x="734" y="126" font-size="12" fill="#9b9bb4" font-weight="400" text-anchor="end" >3.5%</text>
+<circle cx="766" cy="122" r="5.5" fill="#663399"/><text x="778" y="126" font-size="12.5" fill="#d6d6e7" font-weight="500" text-anchor="start" >CSS</text><text x="960" y="126" font-size="12" fill="#9b9bb4" font-weight="400" text-anchor="end" >2.8%</text>
+<circle cx="540" cy="154" r="5.5" fill="#e34c26"/><text x="552" y="158" font-size="12.5" fill="#d6d6e7" font-weight="500" text-anchor="start" >HTML</text><text x="734" y="158" font-size="12" fill="#9b9bb4" font-weight="400" text-anchor="end" >2.6%</text>
+<circle cx="766" cy="154" r="5.5" fill="#198CE7"/><text x="778" y="158" font-size="12.5" fill="#d6d6e7" font-weight="500" text-anchor="start" >R</text><text x="960" y="158" font-size="12" fill="#9b9bb4" font-weight="400" text-anchor="end" >0.0%</text></svg>

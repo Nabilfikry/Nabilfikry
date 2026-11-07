@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif"><style></style><defs>
+  <clipPath id="f-sc-Repositories"><rect width="240" height="80" rx="14"/></clipPath>
+  <linearGradient id="edge-sc-Repositories" x1="0" x2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#8b5cf611"/></linearGradient>
+</defs>
+<g clip-path="url(#f-sc-Repositories)">
+<rect width="240" height="80" fill="#1b1b26" stroke="#2c2c3c"/>
+<rect x="14" y="0" width="212" height="1.8" fill="url(#edge-sc-Repositories)"/>
+<rect x="16" y="18" width="44" height="44" rx="12" fill="#8b5cf6"/>
+<path transform="translate(28 30) scale(1.25)" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 11-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8z" fill="#fff"/>
+<text x="72" y="36" font-size="11.5" fill="#9b9bb4" font-weight="400" text-anchor="start" >Repositories</text>
+<text x="72" y="59" font-size="21" fill="#f4f3ff" font-weight="700" text-anchor="start" >13</text>
+<path d="M216 24l6-6M218 18h4v4" fill="none" stroke="#8b5cf6" stroke-width="1.8" stroke-linecap="round"/>
+</g>
+<rect x=".5" y=".5" width="239" height="79" rx="14" fill="none" stroke="#2c2c3c"/></svg>
