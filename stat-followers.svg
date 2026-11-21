@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="80" viewBox="0 0 240 80" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif"><style></style><defs>
+  <clipPath id="f-sc-Followers"><rect width="240" height="80" rx="14"/></clipPath>
+  <linearGradient id="edge-sc-Followers" x1="0" x2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#38bdf811"/></linearGradient>
+</defs>
+<g clip-path="url(#f-sc-Followers)">
+<rect width="240" height="80" fill="#1b1b26" stroke="#2c2c3c"/>
+<rect x="14" y="0" width="212" height="1.8" fill="url(#edge-sc-Followers)"/>
+<rect x="16" y="18" width="44" height="44" rx="12" fill="#38bdf8"/>
+<path transform="translate(28 30) scale(1.25)" d="M10.5 4.5a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zM8 8.5c-3.2 0-5.5 1.6-5.5 4.2V14h11v-1.3c0-2.6-2.3-4.2-5.5-4.2z" fill="#fff"/>
+<text x="72" y="36" font-size="11.5" fill="#9b9bb4" font-weight="400" text-anchor="start" >Followers</text>
+<text x="72" y="59" font-size="21" fill="#f4f3ff" font-weight="700" text-anchor="start" >4</text>
+<path d="M216 24l6-6M218 18h4v4" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round"/>
+</g>
+<rect x=".5" y=".5" width="239" height="79" rx="14" fill="none" stroke="#2c2c3c"/></svg>
